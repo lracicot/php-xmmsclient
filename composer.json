@@ -18,4 +18,9 @@
     "autoload": {
         "psr-0": {"lracicot\\phpxmmsclient": "src/"}
     }
+    "extra": {
+        "branch-alias": {
+            "dev-master": "master"
+        }
+    }
 }
