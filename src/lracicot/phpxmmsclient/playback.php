@@ -3,24 +3,34 @@
 namespace lracicot\phpxmmsclient;
 
 class Playback
-{	
-	public function play($track_id = 0)
+{
+	private $xmms;
+
+	function __construct(xmmsapi\xmmsapi $api)
 	{
-		return shell_exec('python '. XMMSPATH .'play.py'); 
+		$this->xmms = $api;
+	}
+
+	public function play($track_id = false)
+	{
+		if ($track_id !== false)
+			$this->xmms->xmms2_playback_jump($track_id);
+
+		$this->xmms->xmms2_playback_play();
 	}
 
 	public function stop()
 	{
-		return shell_exec('python '. XMMSPATH .'stop.py'); 
+		$this->xmms->xmms2_playback_stop();
 	}
 
 	public function pause()
-	{
-		return shell_exec('python '. XMMSPATH .'pause.py'); 
+	{ 
+		$this->xmms->xmms2_playback_pause();
 	}
 
 	public function isPlaying()
 	{
-		return (bool)shell_exec('python '. XMMSPATH .'status.py'); 
+		return $this->xmms->xmms2_playback_status();
 	}
 }
