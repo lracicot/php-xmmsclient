@@ -39,7 +39,6 @@ class python_bindings_xmms_api implements xmmsapi
 
 	function xmms2_playback_status()
 	{
-		var_dump((bool)(int)shell_exec('python '. XMMSPATH .'status.py'));
-		return (bool)shell_exec('python '. XMMSPATH .'status.py');
+		return (bool)(int)shell_exec('python '. XMMSPATH .'status.py');
 	}
 }

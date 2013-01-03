@@ -14,19 +14,19 @@ class Playback
 	public function play($track_id = false)
 	{
 		if ($track_id !== false)
-			$this->xmms->xmms2_playback_jump($track_id);
+			return $this->xmms->xmms2_playback_jump($track_id);
 
-		$this->xmms->xmms2_playback_play();
+		return $this->xmms->xmms2_playback_play();
 	}
 
 	public function stop()
 	{
-		$this->xmms->xmms2_playback_stop();
+		return $this->xmms->xmms2_playback_stop();
 	}
 
 	public function pause()
 	{ 
-		$this->xmms->xmms2_playback_pause();
+		return $this->xmms->xmms2_playback_pause();
 	}
 
 	public function isPlaying()
